@@ -17,13 +17,12 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+// User connects to server/room
 io.on('connect', (socket) => {
 
   socket.on('join', ({ name, room }, callback) => {
 
     const { error, user } = addUser({ id: socket.id, name, room });
-
-    console.log(name + ", " + room)
 
     if(error) return callback(error);
 
@@ -33,11 +32,11 @@ io.on('connect', (socket) => {
     socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
-    console.log(getUsersInRoom(user.room));
 
     callback();
   });
 
+  // USer sends messages in server/room
   socket.on('sendMessage', (message, callback) => {
     const user = getUser(socket.id);
     console.log(message);
@@ -46,6 +45,7 @@ io.on('connect', (socket) => {
     callback();
   });
 
+  // User disconnects from server/room
   socket.on('disconnect', () => {
     const user = removeUser(socket.id);
 
