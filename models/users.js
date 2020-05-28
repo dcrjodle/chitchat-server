@@ -6,6 +6,10 @@ const addUser = ({ id, name, room }) => {
     name = "Anonymous";
   }
 
+  if (room == null || room == "") {
+    room = "Undefined";
+  }
+
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
