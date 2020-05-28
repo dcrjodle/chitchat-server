@@ -1,6 +1,11 @@
 const users = [];
 
 const addUser = ({ id, name, room }) => {
+
+  if (name == null || name == "") {
+    name = "Anonymous";
+  }
+
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
