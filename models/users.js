@@ -7,7 +7,7 @@ const addUser = ({ id, name, room }) => {
   }
 
   if (room == null || room == "") {
-    room = "Undefined";
+    room = "General";
   }
 
   name = name.trim().toLowerCase();

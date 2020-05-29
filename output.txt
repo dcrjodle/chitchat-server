@@ -1,0 +1,10 @@
+2020-05-29T08:47:15.239846+00:00 app[web.1]: äntligen
+2020-05-29T08:47:15.242028+00:00 app[web.1]: /app/index.js:43
+2020-05-29T08:47:15.242030+00:00 app[web.1]: io.to(user.room).emit('message', { user: user.name, text: message });
+2020-05-29T08:47:15.242030+00:00 app[web.1]: ^
+2020-05-29T08:47:15.242031+00:00 app[web.1]:
+2020-05-29T08:47:15.242032+00:00 app[web.1]: TypeError: Cannot read property 'room' of undefined
+2020-05-29T08:47:15.242033+00:00 app[web.1]: at Socket.<anonymous> (/app/index.js:43:16)
+2020-05-29T08:47:15.242034+00:00 app[web.1]: at Socket.emit (events.js:315:20)
+2020-05-29T08:47:15.242034+00:00 app[web.1]: at /app/node_modules/socket.io/lib/socket.js:528:12
+2020-05-29T08:47:15.242035+00:00 app[web.1]: at processTicksAndRejections (internal/process/task_queues.js:79:11)
